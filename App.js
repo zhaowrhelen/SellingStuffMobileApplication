@@ -16,29 +16,10 @@ import {
   useDeviceOrientation,
 } from "@react-native-community/hooks";
 import WelcomeScreen from "./app/screens/WelcomeScreen";
+import ViewImageScreen from "./app/screens/ViewImageScreen";
 
 export default function App() {
-  console.log("app executed");
+  // return <WelcomeScreen />;
 
-  const handlePress = () => console.log("Text pressed");
-  const handleTouch = () => console.log("image touch");
-  const buttonClick = () =>
-    Alert.alert("title", "message", [
-      { text: "yes", onPress: () => console.log("yes") },
-      { text: "no", onPress: () => console.log("no") },
-    ]);
-
-  return <WelcomeScreen />;
+  return <ViewImageScreen />;
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  text: {
-    color: "orange",
-  },
-});
