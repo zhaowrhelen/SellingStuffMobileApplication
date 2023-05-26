@@ -11,6 +11,12 @@ import {
   Alert,
 } from "react-native";
 
+import {
+  useDimensions,
+  useDeviceOrientation,
+} from "@react-native-community/hooks";
+import WelcomeScreen from "./app/screens/WelcomeScreen";
+
 export default function App() {
   console.log("app executed");
 
@@ -22,25 +28,7 @@ export default function App() {
       { text: "no", onPress: () => console.log("no") },
     ]);
 
-  return (
-    <SafeAreaView style={styles.container}>
-      <Text onPress={handlePress}>hello World!</Text>
-      {/* <Image source={require("./assets/splash.png")} /> */}
-      <TouchableOpacity onPress={handleTouch}>
-        <Image
-          source={{
-            width: 200,
-            height: 300,
-            uri: "https://picsum.photos/200/300",
-          }}
-        />
-      </TouchableOpacity>
-
-      <Button title="Click Me" onPress={buttonClick} />
-
-      {/* <StatusBar style="auto" /> */}
-    </SafeAreaView>
-  );
+  return <WelcomeScreen />;
 }
 
 const styles = StyleSheet.create({
@@ -49,5 +37,8 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
+  },
+  text: {
+    color: "orange",
   },
 });
