@@ -17,9 +17,12 @@ import {
 } from "@react-native-community/hooks";
 import WelcomeScreen from "./app/screens/WelcomeScreen";
 import ViewImageScreen from "./app/screens/ViewImageScreen";
+import ListingDetailsScreen from "./app/screens/ListingDetailsScreen";
 
 export default function App() {
-  return <WelcomeScreen />;
+  // return <WelcomeScreen />;
+
+  return <ListingDetailsScreen />;
 
   // return <ViewImageScreen />;
 }
