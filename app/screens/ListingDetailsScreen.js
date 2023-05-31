@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, Image } from "react-native";
 import Card from "../components/Card";
 import AppText from "../components/AppText";
 import colors from "../config/colors";
+import ListItem from "../components/ListItem";
 
 function ListingDetailsScreen(props) {
   return (
@@ -14,6 +15,13 @@ function ListingDetailsScreen(props) {
       <View style={styles.detailsContainer}>
         <AppText style={styles.title}>Blue couch for sale</AppText>
         <AppText style={styles.price}>$100</AppText>
+        <View style={styles.userContainer}>
+          <ListItem
+            image={require("../assets/profile-img.jpg")}
+            title="Helen Zhao"
+            subTitle="5 Listings"
+          ></ListItem>
+        </View>
       </View>
 
       {/* <Card
@@ -45,6 +53,9 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     fontSize: 20,
     marginVertical: 10,
+  },
+  userContainer: {
+    marginVertical: 40,
   },
 });
 

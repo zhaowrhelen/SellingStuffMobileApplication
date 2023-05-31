@@ -22,7 +22,7 @@ import ListingDetailsScreen from "./app/screens/ListingDetailsScreen";
 export default function App() {
   // return <WelcomeScreen />;
 
-  return <ListingDetailsScreen />;
+  // return <ListingDetailsScreen />;
 
-  // return <ViewImageScreen />;
+  return <ViewImageScreen />;
 }
