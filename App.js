@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import { StatusBar } from "expo-status-bar";
 import {
   StyleSheet,
@@ -9,6 +10,7 @@ import {
   TouchableOpacity,
   Button,
   Alert,
+  TextInput,
 } from "react-native";
 
 import {
@@ -23,6 +25,8 @@ import Screen from "./app/components/Screen";
 import Icon from "./app/components/Icon";
 import ListItem from "./app/components/ListItem";
 import AccountScreen from "./app/screens/AccountScreen";
+import ListingsScreen from "./app/screens/ListingsScreen";
+import AppTextInput from "./app/components/AppTextInput";
 
 export default function App() {
   // return <WelcomeScreen />;
@@ -31,5 +35,24 @@ export default function App() {
 
   // return <ViewImageScreen />;
   // return <MessageScreen></MessageScreen>;
-  return <AccountScreen></AccountScreen>;
+  // return <AccountScreen></AccountScreen>;
+  // return <ListingsScreen></ListingsScreen>;
+
+  const [firstName, setFirstName] = useState("");
+
+  return (
+    <Screen>
+      <Text>{firstName}</Text>
+      {/* <TextInput
+        onChangeText={(text) => setFirstName(text)}
+        placeholder="First name"
+        style={{
+          borderBottomColor: "#ccc",
+          borderBottomWidth: 1,
+        }}
+      ></TextInput> */}
+
+      <AppTextInput placeholder="Username" icon="email"></AppTextInput>
+    </Screen>
+  );
 }
