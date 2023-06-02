@@ -8,6 +8,8 @@ import * as Yup from "yup";
 import AppText from "../components/AppText";
 import ErrorMessage from "../components/ErrorMessage";
 import AppFormField from "../components/AppFormField";
+import SubmitButton from "../components/SubmitButton";
+import AppForm from "../components/AppForm";
 
 const validationSchema = Yup.object().shape({
   email: Yup.string().required().email().label("Email"),
@@ -21,43 +23,39 @@ function LoginScreen(props) {
         source={require("../assets/logo-red.png")}
         style={styles.logo}
       ></Image>
-      <Formik
+      <AppForm
         initialValues={{ email: "", password: "" }}
         onSubmit={(values) => {
           console.log(values);
         }}
         validationSchema={validationSchema}
       >
-        {({ handleChange, handleSubmit, errors, setFieldTouched, touched }) => (
-          <>
-            <AppFormField
-              autoCapitalize="none"
-              autoCorrect={false}
-              icon="email"
-              name="email"
-              keyboardType="email-address"
-              //   onChangeText={handleChange("email")}
-              placeholder="Email"
-              //   onBlur={() => setFieldTouched("email")}
-              textContentType="emailAddress"
-            ></AppFormField>
+        <AppFormField
+          autoCapitalize="none"
+          autoCorrect={false}
+          icon="email"
+          name="email"
+          keyboardType="email-address"
+          //   onChangeText={handleChange("email")}
+          placeholder="Email"
+          //   onBlur={() => setFieldTouched("email")}
+          textContentType="emailAddress"
+        ></AppFormField>
 
-            <AppFormField
-              autoCapitalize="none"
-              autoCorrect={false}
-              icon="lock"
-              placeholder="Password"
-              name="password"
-              //   onChangeText={handleChange("password")}
-              secureTextEntry
-              //   onBlur={() => setFieldTouched("password")}
-              textContentType="password"
-            ></AppFormField>
+        <AppFormField
+          autoCapitalize="none"
+          autoCorrect={false}
+          icon="lock"
+          placeholder="Password"
+          name="password"
+          //   onChangeText={handleChange("password")}
+          secureTextEntry
+          //   onBlur={() => setFieldTouched("password")}
+          textContentType="password"
+        ></AppFormField>
 
-            <AppButton title="Login" onPress={handleSubmit}></AppButton>
-          </>
-        )}
-      </Formik>
+        <SubmitButton title="Login"></SubmitButton>
+      </AppForm>
     </Screen>
   );
 }
