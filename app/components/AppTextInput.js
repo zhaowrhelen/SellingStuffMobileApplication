@@ -14,7 +14,7 @@ import defaultStyles from "../config/styles";
 import Screen from "./Screen";
 import AppText from "./AppText";
 
-function AppTextInput({ icon, placeholder, ...otherProps }) {
+function AppTextInput({ icon, ...otherProps }) {
   return (
     <View style={styles.container}>
       {icon && (
@@ -25,10 +25,10 @@ function AppTextInput({ icon, placeholder, ...otherProps }) {
           style={styles.icon}
         ></MaterialCommunityIcons>
       )}
-      <TextInput style={[defaultStyles.text, styles.text]} {...otherProps}>
+      {/* <TextInput style={[defaultStyles.text]} {...otherProps}>
         {placeholder}
-      </TextInput>
-      {/* <TextInput style={defaultStyles.text} {...otherProps}></TextInput> */}
+      </TextInput> */}
+      <TextInput style={defaultStyles.text} {...otherProps}></TextInput>
     </View>
   );
 }
