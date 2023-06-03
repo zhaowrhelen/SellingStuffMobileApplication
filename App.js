@@ -23,12 +23,14 @@ import ListingDetailsScreen from "./app/screens/ListingDetailsScreen";
 import MessageScreen from "./app/screens/MessageScreen";
 import Screen from "./app/components/Screen";
 import Icon from "./app/components/Icon";
-import ListItem from "./app/components/ListItem";
+import ListItem from "./app/components/lists/ListItem";
 import AccountScreen from "./app/screens/AccountScreen";
 import ListingsScreen from "./app/screens/ListingsScreen";
 import AppTextInput from "./app/components/AppTextInput";
 import AppPicker from "./app/components/AppPicker";
 import LoginScreen from "./app/screens/LoginScreen";
+import RegisterScreen from "./app/screens/RegisterScreen";
+import ListingEditScreen from "./app/screens/ListingEditScreen";
 
 // const categories = [
 //   { label: "Furniture", value: 1 },
@@ -64,5 +66,7 @@ export default function App() {
   //   </Screen>
   // );
 
-  return <LoginScreen></LoginScreen>;
+  // return <LoginScreen></LoginScreen>;
+  // return <RegisterScreen></RegisterScreen>;
+  return <ListingEditScreen></ListingEditScreen>;
 }

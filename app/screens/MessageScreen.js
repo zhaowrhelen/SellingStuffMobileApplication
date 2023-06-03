@@ -1,19 +1,20 @@
 import React, { useState } from "react";
 import { FlatList, StyleSheet, View } from "react-native";
-import ListItem from "../components/ListItem";
+import ListItem from "../components/lists/ListItem";
 
 import Screen from "../components/Screen";
 import colors from "../config/colors";
-import ListItemSeparator from "../components/ListItemSeparator";
-import ListItemDeleteAction from "../components/ListItemDeleteAction";
+import ListItemSeparator from "../components/lists/ListItemSeparator";
+import ListItemDeleteAction from "../components/lists/ListItemDeleteAction";
 
 // console.log(Constants);
 
 const initialMessages = [
   {
     id: 1,
-    title: "T1",
-    description: "D1",
+    title: "T1111111111111111rrrrjjvhsjhakhsjkdbvkjfbskjabkjgbfav",
+    description:
+      "D1hdfeujhgifouhdusafkjgbrjkfbslvnakjdnrgjfbdajnrlj gbjfbdlajgjvndflkanlgbrvjbfav",
     image: require("../assets/profile-img.jpg"),
   },
   {

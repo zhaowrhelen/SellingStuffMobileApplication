@@ -1,23 +1,20 @@
-import React, { useState } from "react";
-import { StyleSheet, Image } from "react-native";
+import React from "react";
 import Screen from "../components/Screen";
-import * as Yup from "yup";
+import { StyleSheet } from "react-native";
 import { AppForm, AppFormField, SubmitButton } from "../components/forms";
+import * as Yup from "yup";
 
 const validationSchema = Yup.object().shape({
   email: Yup.string().required().email().label("Email"),
   password: Yup.string().required().min(4).label("Password"),
+  name: Yup.string().required().label("Name"),
 });
 
-function LoginScreen(props) {
+function RegisterScreen(props) {
   return (
     <Screen style={styles.container}>
-      <Image
-        source={require("../assets/logo-red.png")}
-        style={styles.logo}
-      ></Image>
       <AppForm
-        initialValues={{ email: "", password: "" }}
+        initialValues={{ name: "", email: "", password: "" }}
         onSubmit={(values) => {
           console.log(values);
         }}
@@ -26,12 +23,19 @@ function LoginScreen(props) {
         <AppFormField
           autoCapitalize="none"
           autoCorrect={false}
+          icon="account"
+          name="name"
+          keyboardType="email-address"
+          placeholder="Name"
+          textContentType="name"
+        ></AppFormField>
+        <AppFormField
+          autoCapitalize="none"
+          autoCorrect={false}
           icon="email"
           name="email"
           keyboardType="email-address"
-          //   onChangeText={handleChange("email")}
           placeholder="Email"
-          //   onBlur={() => setFieldTouched("email")}
           textContentType="emailAddress"
         ></AppFormField>
 
@@ -41,13 +45,11 @@ function LoginScreen(props) {
           icon="lock"
           placeholder="Password"
           name="password"
-          //   onChangeText={handleChange("password")}
           secureTextEntry
-          //   onBlur={() => setFieldTouched("password")}
           textContentType="password"
         ></AppFormField>
 
-        <SubmitButton title="Login"></SubmitButton>
+        <SubmitButton title="Register"></SubmitButton>
       </AppForm>
     </Screen>
   );
@@ -57,13 +59,6 @@ const styles = StyleSheet.create({
   container: {
     padding: 10,
   },
-  logo: {
-    width: 80,
-    height: 80,
-    alignSelf: "center",
-    marginTop: 50,
-    marginBottom: 20,
-  },
 });
 
-export default LoginScreen;
+export default RegisterScreen;

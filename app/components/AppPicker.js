@@ -3,7 +3,6 @@ import {
   View,
   TextInput,
   StyleSheet,
-  Platform,
   TouchableWithoutFeedback,
   Modal,
   Button,
@@ -16,29 +15,21 @@ import AppText from "./AppText";
 import Screen from "./Screen";
 import PickerItem from "./PickerItem";
 
-function AppPicker({ icon, placeholder, items, onSelectItem, selectedItem }) {
+function AppPicker({
+  icon,
+  placeholder,
+  items,
+  onSelectItem,
+  selectedItem,
+  numberOfColumns = 1,
+  PickerItemComponent = PickerItem,
+  width = "100%",
+}) {
   const [modalVisible, setModalVisible] = useState(false);
   return (
-    //     <View style={styles.container}>
-    //       {icon && (
-    //         <MaterialCommunityIcons
-    //           name={icon}
-    //           size={20}
-    //           color={colors.medium}
-    //           style={styles.icon}
-    //         ></MaterialCommunityIcons>
-    //       )}
-    //       <AppText style={styles.text}>{placeholder}</AppText>
-    //       <MaterialCommunityIcons
-    //         name="chevron-down"
-    //         size={20}
-    //         color={colors.medium}
-    //       ></MaterialCommunityIcons>
-    //     </View>
-    //   );
-    <React.Fragment>
+    <>
       <TouchableWithoutFeedback onPress={() => setModalVisible(true)}>
-        <View style={styles.container}>
+        <View style={[styles.container, { width }]}>
           {icon && (
             <MaterialCommunityIcons
               name={icon}
@@ -47,9 +38,14 @@ function AppPicker({ icon, placeholder, items, onSelectItem, selectedItem }) {
               style={styles.icon}
             ></MaterialCommunityIcons>
           )}
-          <TextInput style={[defaultStyles.text, styles.text]}>
+          {selectedItem ? (
+            <AppText style={styles.text}>{selectedItem.label}</AppText>
+          ) : (
+            <AppText style={styles.placeholder}>{placeholder}</AppText>
+          )}
+          {/* <AppText style={[styles.text]}>
             {selectedItem ? selectedItem.label : placeholder}
-          </TextInput>
+          </AppText> */}
           <MaterialCommunityIcons
             name="chevron-down"
             size={20}
@@ -62,20 +58,22 @@ function AppPicker({ icon, placeholder, items, onSelectItem, selectedItem }) {
           <Button title="Close" onPress={() => setModalVisible(false)}></Button>
           <FlatList
             data={items}
+            numColumns={numberOfColumns}
             keyExtractor={(item) => item.value.toString()}
             renderItem={({ item }) => (
-              <PickerItem
-                label={item.label}
+              <PickerItemComponent
+                item={item}
+                // label={item.label}
                 onPress={() => {
                   setModalVisible(false);
                   onSelectItem(item);
                 }}
-              ></PickerItem>
+              ></PickerItemComponent>
             )}
           ></FlatList>
         </Screen>
       </Modal>
-    </React.Fragment>
+    </>
   );
 }
 
@@ -84,7 +82,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.light,
     borderRadius: 25,
     flexDirection: "row",
-    width: "100%",
+    // width: "100%",
     padding: 15,
     marginVertical: 10,
   },
@@ -94,6 +92,10 @@ const styles = StyleSheet.create({
   },
   text: {
     flex: 1,
+  },
+  placeholder: {
+    flex: 1,
+    color: colors.medium,
   },
 });
 
