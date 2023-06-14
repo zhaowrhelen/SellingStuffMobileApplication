@@ -34,6 +34,7 @@ import ListingEditScreen from "./app/screens/ListingEditScreen";
 import * as ImagePicker from "expo-image-picker";
 import * as Permissions from "expo-permissions";
 import ImageInput from "./app/components/ImageInput";
+import ImageInputList from "./app/components/ImageInputList";
 
 // const categories = [
 //   { label: "Furniture", value: 1 },
@@ -42,7 +43,7 @@ import ImageInput from "./app/components/ImageInput";
 // ];
 
 export default function App() {
-  const [imageUri, setImageUri] = useState();
+  const [imageUris, setImageUris] = useState([]);
   // const requestPermission = async () => {
   //   const { granted } = await ImagePicker.requestMediaLibraryPermissionsAsync();
   //   if (!granted) {
@@ -84,22 +85,32 @@ export default function App() {
   // return <RegisterScreen></RegisterScreen>;
   // return <ListingEditScreen></ListingEditScreen>;
 
-  const selectImage = async () => {
-    try {
-      const result = await ImagePicker.launchImageLibraryAsync();
-      if (!result.canceled) {
-        setImageUri(result.uri);
-      }
-    } catch (error) {
-      console.log("error reading an image");
-    }
+  // const selectImage = async () => {
+  //   try {
+  //     const result = await ImagePicker.launchImageLibraryAsync();
+  //     if (!result.canceled) {
+  //       setImageUri(result.uri);
+  //     }
+  //   } catch (error) {
+  //     console.log("error reading an image");
+  //   }
+  // };
+
+  const handleAdd = (uri) => {
+    setImageUris([...imageUris, uri]);
+  };
+
+  const handleRemove = (uri) => {
+    setImageUris(imageUris.filter((imageUri) => imageUri !== uri));
   };
   return (
     <Screen>
-      <ImageInput
-        imageUri={imageUri}
-        onChangeImage={(uri) => setImageUri(uri)}
-      ></ImageInput>
+      <ImageInputList
+        imageUris={imageUris}
+        // onChangeImage={(uri) => setImageUri(uri)}
+        onAddImage={(uri) => handleAdd(uri)}
+        onRemoveImage={(uri) => handleRemove(uri)}
+      ></ImageInputList>
     </Screen>
   );
 }
