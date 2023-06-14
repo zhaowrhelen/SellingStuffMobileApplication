@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { StatusBar } from "expo-status-bar";
 import {
   StyleSheet,
@@ -31,6 +31,9 @@ import AppPicker from "./app/components/AppPicker";
 import LoginScreen from "./app/screens/LoginScreen";
 import RegisterScreen from "./app/screens/RegisterScreen";
 import ListingEditScreen from "./app/screens/ListingEditScreen";
+import * as ImagePicker from "expo-image-picker";
+import * as Permissions from "expo-permissions";
+import ImageInput from "./app/components/ImageInput";
 
 // const categories = [
 //   { label: "Furniture", value: 1 },
@@ -39,6 +42,17 @@ import ListingEditScreen from "./app/screens/ListingEditScreen";
 // ];
 
 export default function App() {
+  const [imageUri, setImageUri] = useState();
+  // const requestPermission = async () => {
+  //   const { granted } = await ImagePicker.requestMediaLibraryPermissionsAsync();
+  //   if (!granted) {
+  //     alert("You need to enable permission to access the library");
+  //   }
+  // };
+  // useEffect(() => {
+  //   requestPermission();
+  // }, []);
+
   // return <WelcomeScreen />;
 
   // return <ListingDetailsScreen />;
@@ -68,5 +82,24 @@ export default function App() {
 
   // return <LoginScreen></LoginScreen>;
   // return <RegisterScreen></RegisterScreen>;
-  return <ListingEditScreen></ListingEditScreen>;
+  // return <ListingEditScreen></ListingEditScreen>;
+
+  const selectImage = async () => {
+    try {
+      const result = await ImagePicker.launchImageLibraryAsync();
+      if (!result.canceled) {
+        setImageUri(result.uri);
+      }
+    } catch (error) {
+      console.log("error reading an image");
+    }
+  };
+  return (
+    <Screen>
+      <ImageInput
+        imageUri={imageUri}
+        onChangeImage={(uri) => setImageUri(uri)}
+      ></ImageInput>
+    </Screen>
+  );
 }

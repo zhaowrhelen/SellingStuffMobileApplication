@@ -22,6 +22,7 @@ function AppPicker({
   onSelectItem,
   selectedItem,
   numberOfColumns = 1,
+
   PickerItemComponent = PickerItem,
   width = "100%",
 }) {
