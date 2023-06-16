@@ -83,7 +83,7 @@ export default function App() {
 
   // return <LoginScreen></LoginScreen>;
   // return <RegisterScreen></RegisterScreen>;
-  // return <ListingEditScreen></ListingEditScreen>;
+  return <ListingEditScreen></ListingEditScreen>;
 
   // const selectImage = async () => {
   //   try {
@@ -96,21 +96,21 @@ export default function App() {
   //   }
   // };
 
-  const handleAdd = (uri) => {
-    setImageUris([...imageUris, uri]);
-  };
+  // const handleAdd = (uri) => {
+  //   setImageUris([...imageUris, uri]);
+  // };
 
-  const handleRemove = (uri) => {
-    setImageUris(imageUris.filter((imageUri) => imageUri !== uri));
-  };
-  return (
-    <Screen>
-      <ImageInputList
-        imageUris={imageUris}
-        // onChangeImage={(uri) => setImageUri(uri)}
-        onAddImage={(uri) => handleAdd(uri)}
-        onRemoveImage={(uri) => handleRemove(uri)}
-      ></ImageInputList>
-    </Screen>
-  );
+  // const handleRemove = (uri) => {
+  //   setImageUris(imageUris.filter((imageUri) => imageUri !== uri));
+  // };
+  // return (
+  //   <Screen>
+  //     <ImageInputList
+  //       imageUris={imageUris}
+  //       // onChangeImage={(uri) => setImageUri(uri)}
+  //       onAddImage={(uri) => handleAdd(uri)}
+  //       onRemoveImage={(uri) => handleRemove(uri)}
+  //     ></ImageInputList>
+  //   </Screen>
+  // );
 }
