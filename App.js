@@ -49,82 +49,82 @@ import AppNavigator from "./app/navigation/AppNavigator";
 //   { label: "Cameras", value: 3 },
 // ];
 
-const Link = () => {
-  const navigation = useNavigation();
-  return (
-    <Button
-      title="Click"
-      onPress={() => navigation.navigate("TweetDetails", { id: 1 })}
-    />
-  );
-};
+// const Link = () => {
+//   const navigation = useNavigation();
+//   return (
+//     <Button
+//       title="Click"
+//       onPress={() => navigation.navigate("TweetDetails", { id: 1 })}
+//     />
+//   );
+// };
 
-const Tweets = ({ navigation }) => (
-  <Screen>
-    <Text>Tweets</Text>
-    {/* <Button
-      title="View Tweet"
-      onPress={() => navigation.navigate("TweetDetails")}
-    ></Button> */}
-    <Link />
-  </Screen>
-);
+// const Tweets = ({ navigation }) => (
+//   <Screen>
+//     <Text>Tweets</Text>
+//     {/* <Button
+//       title="View Tweet"
+//       onPress={() => navigation.navigate("TweetDetails")}
+//     ></Button> */}
+//     <Link />
+//   </Screen>
+// );
 
-const TweetDetails = ({ route }) => (
-  <Screen>
-    <Text>Tweet details {route.params.id}</Text>
-  </Screen>
-);
+// const TweetDetails = ({ route }) => (
+//   <Screen>
+//     <Text>Tweet details {route.params.id}</Text>
+//   </Screen>
+// );
 
-const Stack = createStackNavigator();
-const StackNavigator = () => (
-  <Stack.Navigator
-    screenOptions={{
-      headerStyle: { backgroundColor: "dodgerblue" },
-      headerTintColor: "white",
-    }}
-  >
-    <Stack.Screen name="Tweets" component={Tweets}></Stack.Screen>
-    <Stack.Screen
-      name="TweetDetails"
-      component={TweetDetails}
-      options={({ route }) => ({ title: route.params.id })}
-    ></Stack.Screen>
-  </Stack.Navigator>
-);
+// const Stack = createStackNavigator();
+// const StackNavigator = () => (
+//   <Stack.Navigator
+//     screenOptions={{
+//       headerStyle: { backgroundColor: "dodgerblue" },
+//       headerTintColor: "white",
+//     }}
+//   >
+//     <Stack.Screen name="Tweets" component={Tweets}></Stack.Screen>
+//     <Stack.Screen
+//       name="TweetDetails"
+//       component={TweetDetails}
+//       options={({ route }) => ({ title: route.params.id })}
+//     ></Stack.Screen>
+//   </Stack.Navigator>
+// );
 
-const Account = () => (
-  <Screen>
-    <Text>Account</Text>
-  </Screen>
-);
+// const Account = () => (
+//   <Screen>
+//     <Text>Account</Text>
+//   </Screen>
+// );
 
-const Tab = createBottomTabNavigator();
-const TabNavigator = () => (
-  <Tab.Navigator
-    screenOptions={{
-      tabBarActiveTintColor: "white",
-      tabBarActiveBackgroundColor: "tomato",
-      tabBarInactiveBackgroundColor: "#eee",
-      tabBarInactiveTintColor: "black",
-    }}
-  >
-    <Tab.Screen
-      name="Feed"
-      component={StackNavigator}
-      options={{
-        tabBarIcon: ({ size, color }) => (
-          <MaterialCommunityIcons
-            name="home"
-            size={size}
-            color={color}
-          ></MaterialCommunityIcons>
-        ),
-      }}
-    ></Tab.Screen>
-    <Tab.Screen name="Account" component={Account}></Tab.Screen>
-  </Tab.Navigator>
-);
+// const Tab = createBottomTabNavigator();
+// const TabNavigator = () => (
+//   <Tab.Navigator
+//     screenOptions={{
+//       tabBarActiveTintColor: "white",
+//       tabBarActiveBackgroundColor: "tomato",
+//       tabBarInactiveBackgroundColor: "#eee",
+//       tabBarInactiveTintColor: "black",
+//     }}
+//   >
+//     <Tab.Screen
+//       name="Feed"
+//       component={StackNavigator}
+//       options={{
+//         tabBarIcon: ({ size, color }) => (
+//           <MaterialCommunityIcons
+//             name="home"
+//             size={size}
+//             color={color}
+//           ></MaterialCommunityIcons>
+//         ),
+//       }}
+//     ></Tab.Screen>
+//     <Tab.Screen name="Account" component={Account}></Tab.Screen>
+//   </Tab.Navigator>
+// );
 
 export default function App() {
   return (
