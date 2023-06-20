@@ -5,7 +5,9 @@ const apiClient = create({
 });
 
 apiClient.get("/listings").then((response) => {
-  if (!response.ok) {
-    response.problem;
-  }
+  // if (!response.ok) {
+  //   response.problem;
+  // }
 });
+
+export default apiClient;
