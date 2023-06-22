@@ -33,7 +33,6 @@ function ListingsScreen({ navigation }) {
     request: loadListings,
   } = useApi(listingsApi.getListings);
 
-  
   useEffect(() => {
     loadListings();
   }, []);
