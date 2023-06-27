@@ -15,7 +15,10 @@ const AccountNavigator = () => (
       }
     }
   >
-    <Stack.Screen name="Account" component={AccountScreen}></Stack.Screen>
+    <Stack.Screen
+      name="Account Screen"
+      component={AccountScreen}
+    ></Stack.Screen>
     <Stack.Screen
       name="Messages"
       component={MessageScreen}
