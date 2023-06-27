@@ -43,6 +43,9 @@ import AuthNavigator from "./app/navigation/AuthNavigator";
 import navigationTheme from "./app/navigation/navigationTheme";
 import AppNavigator from "./app/navigation/AppNavigator";
 
+import NetInfo, { useNetInfo } from "@react-native-community/netinfo";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+
 // const categories = [
 //   { label: "Furniture", value: 1 },
 //   { label: "Clothing", value: 2 },
@@ -126,6 +129,67 @@ import AppNavigator from "./app/navigation/AppNavigator";
 //   </Tab.Navigator>
 // );
 
+// const [imageUris, setImageUris] = useState([]);
+// const requestPermission = async () => {
+//   const { granted } = await ImagePicker.requestMediaLibraryPermissionsAsync();
+//   if (!granted) {
+//     alert("You need to enable permission to access the library");
+//   }
+// };
+// useEffect(() => {
+//   requestPermission();
+// }, []);
+// return <WelcomeScreen />;
+// return <ListingDetailsScreen />;
+// return <ViewImageScreen />;
+// return <MessageScreen></MessageScreen>;
+// return <AccountScreen></AccountScreen>;
+// return <ListingsScreen></ListingsScreen>;
+// const [firstName, setFirstName] = useState("");
+// const [category, setCategory] = useState(categories[0]);
+// return (
+//   <Screen>
+//     <Text>{firstName}</Text>
+//     <AppPicker
+//       items={categories}
+//       placeholder="Category"
+//       icon="apps"
+//       selectedItem={category}
+//       onSelectItem={(item) => setCategory(item)}
+//     ></AppPicker>
+//     <AppTextInput placeholder="Email" icon="email"></AppTextInput>
+//   </Screen>
+// );
+// return <LoginScreen></LoginScreen>;
+// return <RegisterScreen></RegisterScreen>;
+// return <ListingEditScreen></ListingEditScreen>;
+// const selectImage = async () => {
+//   try {
+//     const result = await ImagePicker.launchImageLibraryAsync();
+//     if (!result.canceled) {
+//       setImageUri(result.uri);
+//     }
+//   } catch (error) {
+//     console.log("error reading an image");
+//   }
+// };
+// const handleAdd = (uri) => {
+//   setImageUris([...imageUris, uri]);
+// };
+// const handleRemove = (uri) => {
+//   setImageUris(imageUris.filter((imageUri) => imageUri !== uri));
+// };
+// return (
+//   <Screen>
+//     <ImageInputList
+//       imageUris={imageUris}
+//       // onChangeImage={(uri) => setImageUri(uri)}
+//       onAddImage={(uri) => handleAdd(uri)}
+//       onRemoveImage={(uri) => handleRemove(uri)}
+//     ></ImageInputList>
+//   </Screen>
+// );
+
 export default function App() {
   return (
     <NavigationContainer theme={navigationTheme}>
@@ -134,64 +198,32 @@ export default function App() {
       <AppNavigator />
     </NavigationContainer>
   );
-  // const [imageUris, setImageUris] = useState([]);
-  // const requestPermission = async () => {
-  //   const { granted } = await ImagePicker.requestMediaLibraryPermissionsAsync();
-  //   if (!granted) {
-  //     alert("You need to enable permission to access the library");
-  //   }
-  // };
-  // useEffect(() => {
-  //   requestPermission();
-  // }, []);
-  // return <WelcomeScreen />;
-  // return <ListingDetailsScreen />;
-  // return <ViewImageScreen />;
-  // return <MessageScreen></MessageScreen>;
-  // return <AccountScreen></AccountScreen>;
-  // return <ListingsScreen></ListingsScreen>;
-  // const [firstName, setFirstName] = useState("");
-  // const [category, setCategory] = useState(categories[0]);
-  // return (
-  //   <Screen>
-  //     <Text>{firstName}</Text>
-  //     <AppPicker
-  //       items={categories}
-  //       placeholder="Category"
-  //       icon="apps"
-  //       selectedItem={category}
-  //       onSelectItem={(item) => setCategory(item)}
-  //     ></AppPicker>
-  //     <AppTextInput placeholder="Email" icon="email"></AppTextInput>
-  //   </Screen>
-  // );
-  // return <LoginScreen></LoginScreen>;
-  // return <RegisterScreen></RegisterScreen>;
-  // return <ListingEditScreen></ListingEditScreen>;
-  // const selectImage = async () => {
-  //   try {
-  //     const result = await ImagePicker.launchImageLibraryAsync();
-  //     if (!result.canceled) {
-  //       setImageUri(result.uri);
-  //     }
-  //   } catch (error) {
-  //     console.log("error reading an image");
-  //   }
-  // };
-  // const handleAdd = (uri) => {
-  //   setImageUris([...imageUris, uri]);
-  // };
-  // const handleRemove = (uri) => {
-  //   setImageUris(imageUris.filter((imageUri) => imageUri !== uri));
-  // };
-  // return (
-  //   <Screen>
-  //     <ImageInputList
-  //       imageUris={imageUris}
-  //       // onChangeImage={(uri) => setImageUri(uri)}
-  //       onAddImage={(uri) => handleAdd(uri)}
-  //       onRemoveImage={(uri) => handleRemove(uri)}
-  //     ></ImageInputList>
-  //   </Screen>
-  // );
 }
+
+// export default function App() {
+// NetInfo.fetch().then((netInfo) => console.log(netInfo));
+
+//componentDidMount
+// const unsubscribe = NetInfo.addEventListener((netInfo) =>
+//   console.log(netInfo)
+// );
+
+//componentWillUmount
+// unsubscribe();
+
+// const netInfo = useNetInfo();
+//   const demo = async () => {
+//     try {
+//       await AsyncStorage.setItem("person", JSON.stringify({ id: 1 }));
+//       const value = await AsyncStorage.getItem("person");
+//       const person = JSON.parse(value);
+//       console.log(person);
+//     } catch (error) {
+//       console.log(error);
+//     }
+//   };
+
+//   demo();
+
+//   return null;
+// }
