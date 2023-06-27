@@ -45,6 +45,7 @@ import AppNavigator from "./app/navigation/AppNavigator";
 
 import NetInfo, { useNetInfo } from "@react-native-community/netinfo";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import OfflineNotice from "./app/components/OfflineNotice";
 
 // const categories = [
 //   { label: "Furniture", value: 1 },
@@ -192,11 +193,14 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function App() {
   return (
-    <NavigationContainer theme={navigationTheme}>
-      {/* <TabNavigator /> */}
-      {/* <AuthNavigator /> */}
-      <AppNavigator />
-    </NavigationContainer>
+    <>
+      <OfflineNotice />
+      <NavigationContainer theme={navigationTheme}>
+        {/* <TabNavigator /> */}
+        {/* <AuthNavigator /> */}
+        <AppNavigator />
+      </NavigationContainer>
+    </>
   );
 }
 
