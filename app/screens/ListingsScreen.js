@@ -32,6 +32,7 @@ function ListingsScreen({ navigation }) {
     loading,
     request: loadListings,
   } = useApi(listingsApi.getListings);
+  console.log(listings.map(item=> item.images))
 
   useEffect(() => {
     loadListings();

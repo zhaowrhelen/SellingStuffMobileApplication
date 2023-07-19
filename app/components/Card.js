@@ -5,6 +5,7 @@ import AppText from "./AppText";
 import { Image } from "react-native-expo-image-cache";
 
 function Card({ title, subTitle, imageUrl, thumbnaiUrl, onPress }) {
+  console.log(imageUrl)
   return (
     <TouchableWithoutFeedback onPress={onPress}>
       <View style={styles.card}>
